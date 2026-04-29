@@ -57,8 +57,6 @@
 
 .cardFront,
 .cardBack {
-  position: absolute;
-  inset: 0;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   border-radius: var(--radius-xl);
@@ -70,20 +68,20 @@
 }
 
 .cardFront {
-  background: 
-    radial-gradient(circle at 30% 20%, rgba(108, 92, 231, 0.15) 0%, transparent 60%),
-    radial-gradient(circle at 70% 80%, rgba(0, 206, 201, 0.1) 0%, transparent 60%),
-    var(--bg-card);
+  position: absolute;
+  inset: 0;
+  background: var(--bg-card);
   border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
 }
 
 .cardBack {
+  position: relative;
+  width: 100%;
   transform: rotateY(180deg);
-  background: 
-    radial-gradient(circle at 70% 20%, rgba(0, 206, 201, 0.12) 0%, transparent 60%),
-    radial-gradient(circle at 30% 80%, rgba(108, 92, 231, 0.08) 0%, transparent 60%),
-    var(--bg-card);
+  background: var(--bg-card);
   border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
   justify-content: flex-start;
   padding-top: var(--space-lg);
   gap: var(--space-md);
@@ -139,9 +137,9 @@
   align-items: flex-start;
   gap: 12px;
   padding: 14px 16px;
-  background: rgba(255, 255, 255, 0.04);
+  background: var(--bg-tertiary);
   border-radius: var(--radius-md);
-  border: 1px solid var(--border-glass);
+  border: 1px solid var(--border-color);
 }
 
 .flag {
@@ -191,9 +189,9 @@
 .exampleBox {
   width: 100%;
   padding: 12px 16px;
-  background: rgba(108, 92, 231, 0.08);
+  background: var(--bg-tertiary);
   border-radius: var(--radius-md);
-  border: 1px solid rgba(108, 92, 231, 0.12);
+  border: 1px solid var(--border-color);
 }
 
 .exampleText {
@@ -225,8 +223,10 @@
   font-size: 0.78rem;
   font-weight: 600;
   transition: all var(--transition-normal);
-  border: 1px solid var(--border-glass);
+  border: 1px solid var(--border-color);
+  background: var(--bg-card);
   position: relative;
+  box-shadow: var(--shadow-sm);
 }
 
 .answerBtn:active {
@@ -247,43 +247,39 @@
 }
 
 .again {
-  background: rgba(255, 118, 117, 0.1);
   color: var(--accent-coral);
-  border-color: rgba(255, 118, 117, 0.2);
+  border-bottom: 3px solid var(--accent-coral);
 }
 
 .again:hover {
-  background: rgba(255, 118, 117, 0.2);
+  background: #FFF5F5;
 }
 
 .hard {
-  background: rgba(253, 203, 110, 0.1);
   color: var(--accent-amber);
-  border-color: rgba(253, 203, 110, 0.2);
+  border-bottom: 3px solid var(--accent-amber);
 }
 
 .hard:hover {
-  background: rgba(253, 203, 110, 0.2);
+  background: #FFFBEB;
 }
 
 .good {
-  background: rgba(116, 185, 255, 0.1);
-  color: var(--accent-sky);
-  border-color: rgba(116, 185, 255, 0.2);
+  color: var(--primary);
+  border-bottom: 3px solid var(--primary);
 }
 
 .good:hover {
-  background: rgba(116, 185, 255, 0.2);
+  background: #F0F2F9;
 }
 
 .easy {
-  background: rgba(0, 184, 148, 0.1);
-  color: var(--accent-mint);
-  border-color: rgba(0, 184, 148, 0.2);
+  color: var(--secondary);
+  border-bottom: 3px solid var(--secondary);
 }
 
 .easy:hover {
-  background: rgba(0, 184, 148, 0.2);
+  background: #E8FDF5;
 }
 
 /* --- Flip Prompt --- */

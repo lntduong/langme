@@ -67,10 +67,10 @@
 
 .aiBtn {
   padding: 10px 16px;
-  background: linear-gradient(135deg, rgba(108, 92, 231, 0.2), rgba(0, 206, 201, 0.15));
-  border: 1px solid rgba(108, 92, 231, 0.3);
+  background: var(--bg-tertiary);
+  border: 1px solid var(--primary-light);
   border-radius: var(--radius-md);
-  color: var(--primary-light);
+  color: var(--primary);
   font-weight: 700;
   font-size: 0.85rem;
   white-space: nowrap;
@@ -81,8 +81,9 @@
 }
 
 .aiBtn:hover:not(:disabled) {
-  background: linear-gradient(135deg, rgba(108, 92, 231, 0.3), rgba(0, 206, 201, 0.25));
-  box-shadow: var(--shadow-glow);
+  background: var(--primary-light);
+  color: white;
+  box-shadow: var(--shadow-sm);
 }
 
 .aiBtn:disabled {
@@ -140,8 +141,8 @@
 /* --- Preview Card --- */
 .previewCard {
   padding: var(--space-md);
-  background: linear-gradient(135deg, rgba(108, 92, 231, 0.1), rgba(0, 206, 201, 0.08));
-  border: 1px solid rgba(108, 92, 231, 0.2);
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
   border-radius: var(--radius-lg);
 }
 

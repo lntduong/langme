@@ -34,6 +34,7 @@ export async function GET() {
         profile,
         dueCount: dueWords.length,
         recentWords: vocabulary.slice(-5).reverse(),
+        dailyStats: dailyStats,
       },
     });
   } catch (error) {

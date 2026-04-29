@@ -49,7 +49,7 @@
 
 .searchInput:focus {
   border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.15);
+  box-shadow: 0 0 0 3px rgba(92, 103, 255, 0.2);
 }
 
 .searchInput::placeholder {
@@ -94,9 +94,9 @@
 }
 
 .categoryActive {
-  background: rgba(108, 92, 231, 0.2);
-  color: var(--primary-light);
-  border-color: rgba(108, 92, 231, 0.4);
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
 }
 
 /* --- Loading --- */
@@ -131,10 +131,11 @@
 
 .wordCard {
   background: var(--bg-card);
-  border: 1px solid var(--border-glass);
+  border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
   overflow: hidden;
   transition: all var(--transition-normal);
+  box-shadow: var(--shadow-sm);
 }
 
 .wordCard:hover {
@@ -210,7 +211,7 @@
 /* --- Expanded Content --- */
 .wordExpanded {
   padding: 0 var(--space-md) var(--space-md);
-  border-top: 1px solid var(--border-glass);
+  border-top: 1px solid var(--border-color);
   padding-top: var(--space-md);
   animation: fadeIn 0.2s ease;
 }
@@ -266,7 +267,7 @@
 .modalOverlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(8px);
   display: flex;
   align-items: flex-end;

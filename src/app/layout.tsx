@@ -2,10 +2,10 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import Providers from "@/components/Providers";
 import BottomNav from "@/components/layout/BottomNav";
-import { Geist } from "next/font/google";
+import { Nunito } from "next/font/google";
 import { cn } from "@/lib/utils";
 
-const geist = Geist({subsets:['latin'],variable:'--font-sans'});
+const nunito = Nunito({subsets:['latin', 'vietnamese'],variable:'--font-sans'});
 
 export const metadata: Metadata = {
   title: "LangMe - Học Tiếng Anh & Tiếng Trung",
@@ -27,7 +27,7 @@ export const viewport: Viewport = {
   initialScale: 1,
   maximumScale: 1,
   userScalable: false,
-  themeColor: "#0B0B1A",
+  themeColor: "#F4F5FB",
 };
 
 export default function RootLayout({
@@ -36,12 +36,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="vi" className={cn("font-sans", geist.variable)}>
+    <html lang="vi" className={cn("font-sans", nunito.variable)}>
       <head>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-          rel="stylesheet"
-        />
+        {/* Removed external Google Fonts link since we use next/font */}
       </head>
       <body>
         <Providers>
