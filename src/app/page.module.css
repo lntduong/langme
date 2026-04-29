@@ -1,0 +1,276 @@
+/* ================================================
+   HOME PAGE STYLES
+   ================================================ */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: var(--space-md) 0 var(--space-lg);
+}
+
+.greeting {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 2px;
+}
+
+.title {
+  font-size: 1.8rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.streakBadge {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 14px;
+  background: rgba(253, 203, 110, 0.12);
+  border: 1px solid rgba(253, 203, 110, 0.2);
+  border-radius: var(--radius-full);
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+.streakFire {
+  font-size: 1.1rem;
+  animation: streak-fire 2s ease-in-out infinite;
+}
+
+.streakNumber {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--accent-amber);
+}
+
+/* --- Streak Card --- */
+.streakCard {
+  margin-bottom: var(--space-lg);
+}
+
+.streakCardInner {
+  background: linear-gradient(135deg, rgba(108, 92, 231, 0.15), rgba(0, 206, 201, 0.1));
+  border: 1px solid rgba(108, 92, 231, 0.2);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+}
+
+.streakInfo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: var(--space-md);
+}
+
+.streakEmoji {
+  font-size: 2rem;
+  animation: float 3s ease-in-out infinite;
+}
+
+.streakTitle {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.streakSub {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-top: 2px;
+}
+
+.streakDots {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+.dot {
+  width: 28px;
+  height: 6px;
+  border-radius: var(--radius-full);
+  background: rgba(108, 92, 231, 0.15);
+  transition: all var(--transition-normal);
+}
+
+.dotActive {
+  background: linear-gradient(90deg, var(--primary-light), var(--secondary));
+  box-shadow: 0 0 8px rgba(108, 92, 231, 0.3);
+}
+
+/* --- Stats Grid --- */
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-bottom: var(--space-lg);
+}
+
+.statCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: var(--space-md);
+  background: var(--bg-card);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-lg);
+  transition: all var(--transition-normal);
+}
+
+.statCard:hover {
+  border-color: var(--border-color);
+  transform: translateY(-2px);
+}
+
+.statIcon {
+  font-size: 1.5rem;
+}
+
+.statNumber {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1;
+}
+
+.statLabel {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+/* --- Review CTA --- */
+.reviewCta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-md) var(--space-lg);
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  border-radius: var(--radius-lg);
+  margin-bottom: var(--space-lg);
+  color: white;
+  transition: all var(--transition-normal);
+  text-decoration: none;
+}
+
+.reviewCta:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-glow);
+}
+
+.reviewCtaContent {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.reviewCtaIcon {
+  font-size: 1.8rem;
+}
+
+.reviewCtaTitle {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.reviewCtaSub {
+  font-size: 0.8rem;
+  opacity: 0.85;
+  margin-top: 2px;
+}
+
+/* --- Section --- */
+.section {
+  margin-bottom: var(--space-lg);
+}
+
+.sectionTitle {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: var(--space-md);
+  color: var(--text-primary);
+}
+
+/* --- Empty State --- */
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: var(--space-2xl) var(--space-lg);
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.emptyIcon {
+  font-size: 2.5rem;
+  margin-bottom: var(--space-md);
+}
+
+/* --- Word List --- */
+.wordList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.wordItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px var(--space-md);
+  background: var(--bg-card);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-normal);
+}
+
+.wordItem:hover {
+  border-color: var(--border-color);
+}
+
+.wordMain {
+  flex: 1;
+  min-width: 0;
+}
+
+.wordVi {
+  display: block;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+}
+
+.wordEn {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-top: 1px;
+}
+
+.wordCn {
+  text-align: right;
+}
+
+.wordZh {
+  display: block;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--accent-coral);
+}
+
+.wordPinyin {
+  display: block;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-top: 1px;
+}
+
+.wordLevel {
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+  font-size: 0.7rem;
+  font-weight: 700;
+  white-space: nowrap;
+}

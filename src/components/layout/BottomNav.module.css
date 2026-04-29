@@ -1,0 +1,79 @@
+.nav {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: var(--nav-height);
+  padding-bottom: var(--safe-bottom);
+  background: rgba(18, 18, 42, 0.65); /* macOS style transparent dark */
+  backdrop-filter: blur(40px) saturate(200%);
+  -webkit-backdrop-filter: blur(40px) saturate(200%);
+  border-top: 0.5px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.25);
+  z-index: 100;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 8px 16px;
+  color: var(--text-muted);
+  transition: all var(--transition-normal);
+  position: relative;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.item:active {
+  transform: scale(0.92);
+}
+
+.active {
+  color: var(--primary-light);
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  transition: transform var(--transition-spring);
+}
+
+.active .icon {
+  transform: translateY(-2px);
+}
+
+.label {
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.active .label {
+  font-weight: 700;
+}
+
+.indicator {
+  position: absolute;
+  top: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary-light), var(--secondary));
+  border-radius: var(--radius-full);
+  animation: scaleIn 0.3s var(--transition-spring) both;
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: translateX(-50%) scaleX(0); }
+  to { opacity: 1; transform: translateX(-50%) scaleX(1); }
+}

@@ -1,0 +1,240 @@
+/* ================================================
+   ADD WORD PAGE STYLES
+   ================================================ */
+
+.header {
+  padding: var(--space-md) 0 var(--space-lg);
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+
+/* --- Tab Bar --- */
+.tabBar {
+  display: flex;
+  gap: 4px;
+  padding: 4px;
+  background: var(--bg-card);
+  border-radius: var(--radius-full);
+  margin-bottom: var(--space-lg);
+}
+
+.tab {
+  flex: 1;
+  padding: 10px;
+  border-radius: var(--radius-full);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  transition: all var(--transition-normal);
+}
+
+.tabActive {
+  background: var(--primary);
+  color: white;
+  box-shadow: var(--shadow-sm);
+}
+
+/* --- Form --- */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.inputWithAction {
+  display: flex;
+  gap: 8px;
+}
+
+.inputWithAction .input {
+  flex: 1;
+}
+
+.aiBtn {
+  padding: 10px 16px;
+  background: linear-gradient(135deg, rgba(108, 92, 231, 0.2), rgba(0, 206, 201, 0.15));
+  border: 1px solid rgba(108, 92, 231, 0.3);
+  border-radius: var(--radius-md);
+  color: var(--primary-light);
+  font-weight: 700;
+  font-size: 0.85rem;
+  white-space: nowrap;
+  transition: all var(--transition-normal);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.aiBtn:hover:not(:disabled) {
+  background: linear-gradient(135deg, rgba(108, 92, 231, 0.3), rgba(0, 206, 201, 0.25));
+  box-shadow: var(--shadow-glow);
+}
+
+.aiBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(162, 155, 254, 0.3);
+  border-top-color: var(--primary-light);
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.aiStatus {
+  font-size: 0.78rem;
+  color: var(--primary-light);
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.aiModelInfo {
+  font-size: 0.75rem;
+  color: var(--accent-mint);
+  font-weight: 500;
+  padding: 4px 10px;
+  background: rgba(0, 184, 148, 0.1);
+  border-radius: var(--radius-full);
+  display: inline-block;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.translationGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+}
+
+/* --- Preview Card --- */
+.previewCard {
+  padding: var(--space-md);
+  background: linear-gradient(135deg, rgba(108, 92, 231, 0.1), rgba(0, 206, 201, 0.08));
+  border: 1px solid rgba(108, 92, 231, 0.2);
+  border-radius: var(--radius-lg);
+}
+
+.previewLabel {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--space-sm);
+}
+
+.previewContent {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.previewWord {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.previewTranslations {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+}
+
+.previewTranslations small {
+  color: var(--text-muted);
+}
+
+/* --- Submit --- */
+.submitBtn {
+  width: 100%;
+  padding: 14px;
+  font-size: 1rem;
+  margin-top: var(--space-sm);
+}
+
+/* --- Bulk Import --- */
+.bulkSection {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.bulkDesc {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.bulkTextarea {
+  min-height: 200px;
+  resize: vertical;
+  line-height: 1.8;
+}
+
+.bulkInfo {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* --- Progress Bar --- */
+.progressBar {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.progressTrack {
+  height: 6px;
+  background: var(--bg-card);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  border-radius: var(--radius-full);
+  transition: width 0.3s ease;
+}
+
+.progressText {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  text-align: center;
+}
