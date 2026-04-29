@@ -6,6 +6,7 @@
 import { google } from 'googleapis';
 import { CONFIG } from './config';
 import type { VocabularyEntry, DailyStats } from '@/types';
+import type { PushSubscription } from 'web-push';
 
 function getAuth() {
   const credentials = process.env.GOOGLE_SERVICE_ACCOUNT_KEY;
@@ -222,5 +223,68 @@ export async function updateDailyStats(stats: DailyStats): Promise<void> {
         ]],
       },
     });
+  }
+}
+
+// --- Push Subscriptions Operations ---
+
+export async function getAllSubscriptions(): Promise<PushSubscription[]> {
+  const sheets = getSheets();
+  try {
+    const response = await sheets.spreadsheets.values.get({
+      spreadsheetId: CONFIG.sheets.spreadsheetId,
+      range: `${CONFIG.sheets.subscriptionsSheet || 'Subscriptions'}!A2:B`,
+    });
+
+    const rows = response.data.values;
+    if (!rows || rows.length === 0) return [];
+
+    return rows.map((row) => JSON.parse(row[1]));
+  } catch (error) {
+    console.error('Error fetching subscriptions:', error);
+    return [];
+  }
+}
+
+export async function saveSubscription(subscription: PushSubscription): Promise<void> {
+  const sheets = getSheets();
+  const subString = JSON.stringify(subscription);
+  const endpoint = subscription.endpoint;
+  
+  try {
+    const allSubs = await getAllSubscriptions();
+    const existingIndex = allSubs.findIndex((s) => s.endpoint === endpoint);
+
+    if (existingIndex >= 0) {
+      // Update existing
+      const sheetRow = existingIndex + 2;
+      await sheets.spreadsheets.values.update({
+        spreadsheetId: CONFIG.sheets.spreadsheetId,
+        range: `${CONFIG.sheets.subscriptionsSheet || 'Subscriptions'}!A${sheetRow}:B${sheetRow}`,
+        valueInputOption: 'RAW',
+        requestBody: {
+          values: [[
+            endpoint,
+            subString,
+          ]],
+        },
+      });
+    } else {
+      // Append new
+      await sheets.spreadsheets.values.append({
+        spreadsheetId: CONFIG.sheets.spreadsheetId,
+        range: `${CONFIG.sheets.subscriptionsSheet || 'Subscriptions'}!A:B`,
+        valueInputOption: 'RAW',
+        requestBody: {
+          values: [[
+            endpoint,
+            subString,
+          ]],
+        },
+      });
+    }
+  } catch (error) {
+    console.error('Error saving subscription:', error);
+    throw error;
   }
 }

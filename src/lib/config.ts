@@ -16,6 +16,7 @@ export const CONFIG = {
     spreadsheetId: process.env.GOOGLE_SHEET_ID || '',
     vocabularySheet: 'Vocabulary',
     statsSheet: 'UserStats',
+    subscriptionsSheet: 'Subscriptions',
   },
 
   // SRS Configuration (Spaced Repetition)
