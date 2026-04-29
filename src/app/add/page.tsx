@@ -297,14 +297,14 @@ export default function AddWordPage() {
           <div className={styles.inputGroup}>
             <label className={styles.label}>Phân loại</label>
             <Select value={category} onValueChange={(val) => setCategory(val || "other")}>
-              <SelectTrigger className="w-full bg-[rgba(26,26,62,0.5)] border-[rgba(255,255,255,0.06)] h-[50px] rounded-[14px] text-[0.95rem] px-4 text-white hover:bg-[rgba(36,36,80,0.8)] focus:ring-[rgba(108,92,231,0.15)] focus:ring-3 focus:border-[#6C5CE7] transition-all shadow-none">
+              <SelectTrigger className="w-full h-[56px] bg-[var(--bg-tertiary)] border-[var(--border-color)] rounded-[var(--radius-lg)] text-[0.95rem] px-4 shadow-none">
                 <SelectValue>
                   {CONFIG.categoryLabels[category as keyof typeof CONFIG.categoryLabels] || 'Chọn phân loại'}
                 </SelectValue>
               </SelectTrigger>
-              <SelectContent className="bg-[#1A1A3E] border-[rgba(255,255,255,0.06)] text-white backdrop-blur-xl rounded-[14px]">
+              <SelectContent>
                 {CONFIG.categories.map((cat) => (
-                  <SelectItem key={cat} value={cat} className="focus:bg-[#6C5CE7] focus:text-white cursor-pointer py-2 rounded-[8px] my-1 mx-1">
+                  <SelectItem key={cat} value={cat}>
                     {CONFIG.categoryLabels[cat]}
                   </SelectItem>
                 ))}
