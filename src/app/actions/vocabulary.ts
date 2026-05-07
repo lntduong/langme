@@ -102,6 +102,7 @@ export async function bulkImport(
 ) {
   const session = await auth()
   if (!session?.user?.id) throw new Error("Unauthorized")
+  const userId = session.user.id
 
   if (!words || words.length === 0) throw new Error("No words provided")
   if (words.length > 500) throw new Error("Maximum 500 words per import")
@@ -112,7 +113,7 @@ export async function bulkImport(
     meaning: w.meaning.trim(),
     language: (w.language || "EN").toUpperCase(),
     isPublic: w.isPublic ?? false,
-    userId: session.user!.id,
+    userId: userId,
   }))
 
   // Validate
