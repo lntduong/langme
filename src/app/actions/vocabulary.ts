@@ -107,7 +107,7 @@ export async function bulkImport(
   if (!words || words.length === 0) throw new Error("No words provided")
   if (words.length > 500) throw new Error("Maximum 500 words per import")
 
-  const data = words.map(w => ({
+  const data = words.map((w: any) => ({
     word: w.word.trim(),
     phonetic: w.phonetic?.trim() || null,
     meaning: w.meaning.trim(),

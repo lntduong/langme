@@ -56,7 +56,7 @@ export default function ImportPage() {
     const lines = input.trim().split("\n")
     if (lines.length < 2) throw new Error("CSV must have a header row and at least one data row")
     
-    const header = lines[0].split(",").map(h => h.trim().toLowerCase())
+    const header = lines[0].split(",").map((h: string) => h.trim().toLowerCase())
     const wordIdx = header.indexOf("word")
     const phoneticIdx = header.indexOf("phonetic")
     const meaningIdx = header.indexOf("meaning")
@@ -65,7 +65,7 @@ export default function ImportPage() {
     if (wordIdx === -1) throw new Error('CSV header must contain "word"')
     if (meaningIdx === -1) throw new Error('CSV header must contain "meaning"')
 
-    return lines.slice(1).filter(l => l.trim()).map((line, i) => {
+    return lines.slice(1).filter((l: string) => l.trim()).map((line: string, i: number) => {
       // Simple CSV parse — handle quoted fields
       const cols = parseCSVLine(line)
       if (!cols[wordIdx]) throw new Error(`Row ${i + 2}: missing word`)
@@ -312,7 +312,7 @@ export default function ImportPage() {
                 </tr>
               </thead>
               <tbody>
-                {preview.map((word, i) => (
+                {preview.map((word: any, i: number) => (
                   <tr key={i} style={{ borderBottom: '1px solid var(--border)' }}>
                     <td style={{ ...tdStyle, color: 'var(--muted-foreground)', width: '50px' }}>{i + 1}</td>
                     <td style={{ ...tdStyle, fontWeight: 700, fontSize: word.language === 'ZH' ? '1.125rem' : '0.9375rem' }}>

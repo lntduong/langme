@@ -9,8 +9,8 @@ export default async function Dashboard() {
   const session = await auth()
   const words = await getWords()
   
-  const enCount = words.filter(w => w.language === 'EN').length
-  const zhCount = words.filter(w => w.language === 'ZH').length
+  const enCount = words.filter((w: any) => w.language === 'EN').length
+  const zhCount = words.filter((w: any) => w.language === 'ZH').length
 
   return (
     <div className="container animate-in" style={{ paddingBottom: '4rem' }}>

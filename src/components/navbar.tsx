@@ -37,7 +37,7 @@ export function Navbar() {
           {/* Desktop Links */}
           {session && (
             <div className="nav-desktop" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-              {NAV_ITEMS.slice(1).map(item => {
+              {NAV_ITEMS.slice(1).map((item: any) => {
                 const isActive = pathname === item.href
                 return (
                   <Link
@@ -100,7 +100,7 @@ export function Navbar() {
           alignItems: 'center',
           paddingBottom: 'env(safe-area-inset-bottom, 0px)',
         }}>
-          {NAV_ITEMS.map(item => {
+          {NAV_ITEMS.map((item: any) => {
             const isActive = pathname === item.href
             return (
               <Link

@@ -6,7 +6,7 @@ export function proxy(request: NextRequest) {
 
   // Allow public routes
   const publicPaths = ['/auth/login', '/auth/register', '/api/auth', '/api/register']
-  const isPublic = publicPaths.some(path => pathname.startsWith(path))
+  const isPublic = publicPaths.some((path: string) => pathname.startsWith(path))
 
   if (isPublic) {
     return NextResponse.next()

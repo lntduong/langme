@@ -19,7 +19,7 @@ type PublicWord = {
 export function PublicWordList({ words }: { words: PublicWord[] }) {
   const [search, setSearch] = useState("")
 
-  const filtered = words.filter(w =>
+  const filtered = words.filter((w: any) =>
     search === "" ||
     w.word.toLowerCase().includes(search.toLowerCase()) ||
     w.meaning.toLowerCase().includes(search.toLowerCase()) ||

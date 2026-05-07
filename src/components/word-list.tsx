@@ -26,7 +26,7 @@ export function WordList({ words }: { words: Word[] }) {
   const [loading, setLoading] = useState(false)
   const router = useRouter()
 
-  const filtered = words.filter(w => {
+  const filtered = words.filter((w: any) => {
     const matchLang = filter === "ALL" || w.language === filter
     const matchSearch = search === "" ||
       w.word.toLowerCase().includes(search.toLowerCase()) ||
@@ -130,7 +130,7 @@ export function WordList({ words }: { words: Word[] }) {
         </div>
 
         <div style={{ display: 'flex', gap: '0.25rem', backgroundColor: 'var(--secondary)', borderRadius: '0.5rem', padding: '0.25rem' }}>
-          {(["ALL", "EN", "ZH"] as const).map(lang => (
+          {(["ALL", "EN", "ZH"] as const).map((lang: any) => (
             <button
               key={lang}
               onClick={() => setFilter(lang)}
