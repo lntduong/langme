@@ -8,7 +8,7 @@ export default async function ExplorePage() {
   const publicWords = await getPublicWords()
 
   // Group words by user
-  const byUser = publicWords.reduce((acc, word) => {
+  const byUser = publicWords.reduce((acc: Record<string, { name: string; words: typeof publicWords }>, word: typeof publicWords[0]) => {
     const userId = word.userId
     const userName = word.user.name || "Anonymous"
     if (!acc[userId]) {
