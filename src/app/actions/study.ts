@@ -19,7 +19,7 @@ export async function getQuizWords(language?: string) {
   const selected = shuffled.slice(0, 10)
 
   // For each word, get 3 random other meanings as distractors
-  return selected.map(word => {
+  return selected.map((word: any) => {
     const distractors = words
       .filter(w => w.id !== word.id)
       .sort(() => 0.5 - Math.random())
