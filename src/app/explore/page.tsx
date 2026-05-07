@@ -36,7 +36,7 @@ export default async function ExplorePage() {
         </div>
       ) : (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
-          {Object.entries(byUser).map(([userId, { name, words }]) => (
+          {Object.entries(byUser).map(([userId, { name, words }]: [string, any]) => (
             <section key={userId}>
               <div style={{ 
                 display: 'flex', 
