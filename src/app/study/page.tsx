@@ -117,10 +117,10 @@ export default function StudyPage() {
         <div style={{ color: 'var(--muted-foreground)', fontSize: '0.875rem', fontWeight: 700, letterSpacing: '0.05em', marginBottom: '0.5rem' }}>
           {currentWord.language === 'ZH' ? 'HSK LEVEL' : 'VOCABULARY'}
         </div>
-        <h2 style={{ fontSize: '2.5rem', fontWeight: 800 }}>What does this mean?</h2>
+        <h2 className="study-h2" style={{ fontSize: '2.5rem', fontWeight: 800 }}>What does this mean?</h2>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', alignItems: 'center' }}>
+      <div className="study-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', alignItems: 'center' }}>
         <div className="card" style={{ 
           display: 'flex', 
           flexDirection: 'column', 
@@ -182,7 +182,7 @@ export default function StudyPage() {
       </div>
 
       {/* Footer Actions */}
-      <footer style={{ 
+      <footer className="study-footer" style={{ 
         marginTop: '4rem', 
         paddingTop: '2rem', 
         borderTop: '2px solid var(--border)',
@@ -202,13 +202,13 @@ export default function StudyPage() {
             CHECK
           </button>
         ) : (
-          <div style={{ 
+          <div className="study-footer" style={{ 
             display: 'flex', 
             alignItems: 'center', 
             gap: '2rem', 
             animation: 'fadeIn 0.3s ease-out'
           }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: isCorrect ? '#22c55e' : '#ef4444', fontWeight: 800 }}>
+            <div className="study-result-msg" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: isCorrect ? '#22c55e' : '#ef4444', fontWeight: 800 }}>
               {isCorrect ? <Check /> : <X />}
               {isCorrect ? 'EXCELLENT!' : 'NOT QUITE...'}
             </div>

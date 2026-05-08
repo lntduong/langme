@@ -160,11 +160,11 @@ export function WordList({ words }: { words: Word[] }) {
         <table style={{ width: '100%', borderCollapse: 'collapse' }}>
           <thead>
             <tr style={{ borderBottom: '2px solid var(--border)' }}>
-              <th style={thStyle}>TỪ VỰNG</th>
-              <th style={thStyle}>PHIÊN ÂM</th>
-              <th style={thStyle}>NGHĨA</th>
-              <th style={{ ...thStyle, textAlign: 'center', width: '80px' }}>TRẠNG THÁI</th>
-              <th style={{ ...thStyle, textAlign: 'center', width: '150px' }}>THAO TÁC</th>
+              <th className="mobile-table-cell" style={thStyle}>TỪ VỰNG</th>
+              <th className="hide-mobile" style={thStyle}>PHIÊN ÂM</th>
+              <th className="mobile-table-cell" style={thStyle}>NGHĨA</th>
+              <th className="mobile-table-cell" style={{ ...thStyle, textAlign: 'center', width: '80px' }}>TRẠNG THÁI</th>
+              <th className="mobile-table-cell" style={{ ...thStyle, textAlign: 'center', width: '150px' }}>THAO TÁC</th>
             </tr>
           </thead>
           <tbody>
@@ -188,7 +188,7 @@ export function WordList({ words }: { words: Word[] }) {
                         placeholder="Word"
                       />
                     </td>
-                    <td style={tdStyle}>
+                    <td className="hide-mobile" style={tdStyle}>
                       <input
                         className="input"
                         value={editForm.phonetic}
@@ -243,28 +243,37 @@ export function WordList({ words }: { words: Word[] }) {
                     onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = 'var(--secondary)')}
                     onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'transparent')}
                   >
-                    <td style={tdStyle}>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                        <span style={{ fontWeight: 700, fontSize: word.language === 'ZH' ? '1.25rem' : '1rem' }}>
-                          {word.word}
-                        </span>
-                        <span style={{
-                          padding: '0.125rem 0.5rem',
-                          borderRadius: '1rem',
-                          fontSize: '0.6875rem',
-                          fontWeight: 700,
-                          backgroundColor: word.language === 'EN' ? '#dbeafe' : '#fef3c7',
-                          color: word.language === 'EN' ? '#1d4ed8' : '#b45309',
-                        }}>
-                          {word.language}
-                        </span>
+                    <td className="mobile-table-cell" style={tdStyle}>
+                      <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                          <span style={{ fontWeight: 700, fontSize: word.language === 'ZH' ? '1.25rem' : '1rem' }}>
+                            {word.word}
+                          </span>
+                          <span style={{
+                            padding: '0.125rem 0.5rem',
+                            borderRadius: '1rem',
+                            fontSize: '0.6875rem',
+                            fontWeight: 700,
+                            backgroundColor: word.language === 'EN' ? '#dbeafe' : '#fef3c7',
+                            color: word.language === 'EN' ? '#1d4ed8' : '#b45309',
+                          }}>
+                            {word.language}
+                          </span>
+                        </div>
+                        {word.phonetic && (
+                          <div className="hide-desktop" style={{ fontSize: '0.8125rem', color: 'var(--muted-foreground)' }}>
+                            {word.phonetic}
+                          </div>
+                        )}
                       </div>
                     </td>
-                    <td style={{ ...tdStyle, color: 'var(--muted-foreground)' }}>
+                    <td className="hide-mobile" style={{ ...tdStyle, color: 'var(--muted-foreground)' }}>
                       {word.phonetic || "—"}
                     </td>
-                    <td style={tdStyle}>
-                      {word.meaning}
+                    <td className="mobile-table-cell" style={tdStyle}>
+                      <span style={{ display: 'block', maxWidth: '100%', wordBreak: 'break-word' }}>
+                        {word.meaning}
+                      </span>
                     </td>
                     <td style={{ ...tdStyle, textAlign: 'center' }}>
                       <button

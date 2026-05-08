@@ -118,3 +118,49 @@ button {
 .animate-in {
   animation: fadeIn 0.4s ease-out forwards;
 }
+
+/* Mobile Responsiveness */
+.hide-desktop {
+  display: none !important;
+}
+
+@media (max-width: 640px) {
+  .hide-desktop {
+    display: block !important;
+  }
+  .hide-desktop-inline {
+    display: inline-block !important;
+  }
+  .hide-mobile {
+    display: none !important;
+  }
+  .card {
+    padding: 1.25rem;
+  }
+  .mobile-stack {
+    flex-direction: column;
+    align-items: stretch !important;
+  }
+  .mobile-table-cell {
+    padding: 0.75rem 0.5rem !important;
+  }
+  .study-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+  .study-h2 {
+    font-size: 1.75rem !important;
+  }
+  .study-footer {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: stretch !important;
+  }
+  .study-footer .btn {
+    width: 100%;
+  }
+  .study-result-msg {
+    justify-content: center !important;
+    margin-bottom: 0.5rem;
+  }
+}
